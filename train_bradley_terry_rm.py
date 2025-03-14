@@ -263,7 +263,7 @@ def compute_metrics(eval_pred):
 
 
 class RewardTrainer(Trainer):
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, num_items_in_batch=1, return_outputs=False):
         rewards = model(
             input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"]
         )[0]
